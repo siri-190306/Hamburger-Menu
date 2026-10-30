@@ -1,0 +1,263 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    background: #faf7ff;
+    font-family: 'Dancing Script', cursive;
+    color: #393052;
+}
+
+
+.header {
+    background: white;
+    padding: 18px 8%;
+    box-shadow: 0 3px 15px rgba(0, 0, 0, 0.08);
+
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+}
+
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+
+.logo {
+    text-decoration: none;
+    color: #8054bd;
+    font-size: 26px;
+    font-weight: bold;
+}
+
+
+.nav-menu {
+    display: flex;
+    align-items: center;
+    gap: 35px;
+    list-style: none;
+}
+
+.nav-menu a {
+    text-decoration: none;
+    color: #393052;
+    font-size: 16px;
+    font-weight: 500;
+    transition: 0.3s;
+}
+
+.nav-menu a:hover {
+    color: #b47be7;
+}
+
+
+.hamburger {
+    display: none;
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 5px;
+    z-index: 1002;
+}
+
+.hamburger span {
+    display: block;
+    width: 28px;
+    height: 3px;
+    margin: 6px 0;
+    border-radius: 5px;
+    background: #8054bd;
+    transition: 0.4s ease;
+}
+
+.hamburger.active span:nth-child(1) {
+    transform: translateY(9px) rotate(45deg);
+}
+
+.hamburger.active span:nth-child(2) {
+    opacity: 0;
+}
+
+.hamburger.active span:nth-child(3) {
+    transform: translateY(-9px) rotate(-45deg);
+}
+
+
+.overlay {
+    position: fixed;
+    inset: 0;
+    background: rgba(30, 20, 50, 0.4);
+    opacity: 0;
+    visibility: hidden;
+    transition: 0.4s ease;
+    z-index: 998;
+}
+
+.overlay.active {
+    opacity: 1;
+    visibility: visible;
+}
+
+
+.hero {
+    min-height: 85vh;
+    padding: 80px 10%;
+
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    background: linear-gradient(
+        135deg,
+        #f4eaff,
+        #e9e3ff,
+        #ffe9f0
+    );
+}
+
+.hero-content {
+    max-width: 650px;
+}
+
+.small-heading {
+    color: #a16acb;
+    letter-spacing: 3px;
+    font-size: 13px;
+    font-weight: bold;
+    margin-bottom: 20px;
+}
+
+.hero h1 {
+    font-size: clamp(38px, 6vw, 65px);
+    line-height: 1.2;
+    margin-bottom: 20px;
+}
+
+.hero h1 span {
+    color: #9863cf;
+    display: block;
+}
+
+.hero p {
+    font-size: 17px;
+    line-height: 1.8;
+    color: #716983;
+    margin-bottom: 25px;
+}
+
+.btn {
+    display: inline-block;
+    background: #9364c7;
+    color: white;
+    padding: 13px 28px;
+    border-radius: 30px;
+    text-decoration: none;
+    transition: 0.3s;
+}
+
+.btn:hover {
+    background: #7042a6;
+    transform: translateY(-3px);
+}
+
+.hero-icon {
+    font-size: 160px;
+    animation: floating 3s infinite ease-in-out;
+}
+
+@keyframes floating {
+    50% {
+        transform: translateY(-20px);
+    }
+}
+
+
+.content-section {
+    text-align: center;
+    padding: 85px 20px;
+    min-height: 250px;
+}
+
+.content-section h2 {
+    color: #9364c7;
+    font-size: 32px;
+    margin-bottom: 15px;
+}
+
+
+@media (max-width: 768px) {
+
+    .hamburger {
+        display: block;
+    }
+
+    .nav-menu {
+        position: fixed;
+        top: 0;
+        right: -100%;
+
+        width: 75%;
+        max-width: 320px;
+        height: 100vh;
+
+        background: white;
+
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+
+        gap: 35px;
+
+        box-shadow: -5px 0 20px rgba(0, 0, 0, 0.1);
+
+        transition: right 0.4s ease;
+        z-index: 1001;
+    }
+
+    .nav-menu.active {
+        right: 0;
+    }
+
+    .nav-menu a {
+        font-size: 19px;
+    }
+
+    .hero {
+        min-height: 75vh;
+        text-align: center;
+        justify-content: center;
+        padding: 60px 7%;
+    }
+
+    .hero-icon {
+        display: none;
+    }
+
+    .hero p {
+        font-size: 15px;
+    }
+
+}
+
+
+@media (max-width: 400px) {
+
+    .logo {
+        font-size: 22px;
+    }
+
+    .hero h1 {
+        font-size: 35px;
+    }
+
+}
